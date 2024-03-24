@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -69,7 +70,7 @@
   color: #9DBFAF;
 }
 
-.searchTerm:focus{
+.searchTerm:focus {
   color: #102123;
 }
 
@@ -86,11 +87,123 @@
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
-   display: flex;
-   justify-content: center;
-   align-items: center;
- width: 100%; 
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
+.addbook {
 
+  margin-top: 10px;
+  margin-left: 46%;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 7px 9px;
+  border: 1px solid #222222;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: #fff;
+  color: #222222;
+
+  :hover {
+    border-color: #000000;
+    background: #f7f7f7;
+  }
+
+}
+
+.addBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin-left: 36%;
+  margin-top: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+  width: 350px;
+  height: 200px;
+  background: white;
+  border-radius: 10px;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.myInputs {
+  padding-bottom: 13px;
+  padding-left: 40px;
+}
+
+.inputF {
+align-items: center;
+}
+
+.submitBtn {
+  margin-top: 0px;
+  margin-left: 40%;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 7px 9px;
+  border: 1px solid #222222;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: #fff;
+  color: #222222;
+
+  :hover {
+    border-color: #000000;
+    background: #f7f7f7;
+  } 
+}
+
+.bookCard {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-style: italic;
+  width: 200px;
+  height: 285px;
+  background: white;
+  border-radius: 10px;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+
+.bookCard img {
+  align-items: center;
+  max-width: 60%; /* Ensure the image fits within the container */
+  border-radius: 5px; /* Optional: Add border-radius to the image */
+  margin-bottom: 10px; /* Optional: Add margin below the image */
+  margin-left: 38px;
+}
+
+.bookCard h4, .bookCard h5 {
+  margin: 0; /* Remove default margins */
+  text-align: center;
+  padding-top: 12px;
+  font-size: 10px;
+}
+
+.name{
+  text-align: center;
+  font-style: normal;
+  font-size: 18px;
+margin: 0;
+padding-bottom: 11px;
+}

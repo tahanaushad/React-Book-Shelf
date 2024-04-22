@@ -2,13 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 import BookShelf from './BookShelf';
-import Modal from './Modal';
 
 
 
 function App() {
 
   const [books, setBooks] = useState([])
+  const [filtered, setFiltered] = useState([])
 
   const addBook = (bookObj) => {
     setBooks((previousState) => {
@@ -20,19 +20,31 @@ function App() {
   }
 
 
-  
+  const removeBook = (index) => {
+    let booksObj = books;
+    booksObj.splice(index, 1);
+    setBooks([...booksObj])
+  }
+
+  const onSearch = (event) => {
+    const filteredBook = books.filter((book, index) => {
+      return book.name.includes(event.target.value);
+    })
+    setFiltered([...filteredBook])
+  }
+
 
   return (
     <div className='main'>
 
       <div className='heading'>
         <h1>Book Shelf</h1>
-        <h4>96 Books Available</h4>
+        <h4>{books.length} Books Available</h4>
       </div>
 
       <div className="wrap">
         <div className="search">
-          <input type="text" className="searchTerm" placeholder="Search Book.." />
+          <input onChange={onSearch} type="text" className="searchTerm" placeholder="Search Book.." />
           <button type="submit" className="searchButton">
             <i className="fas fa-search"></i>
           </button>
@@ -41,8 +53,7 @@ function App() {
 
 
 
-
-      <BookShelf addBook={addBook} books={books} />
+      <BookShelf addBook={addBook} books={books} filtered={filtered} removeBook={removeBook} />
 
 
     </div>

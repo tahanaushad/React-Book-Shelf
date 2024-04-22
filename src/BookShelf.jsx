@@ -1,12 +1,15 @@
 import { useState } from "react";
 
 const BookShelf = (props) => {
-    console.log(props)
     const [showForm, setShowForm] = useState(false)
 
     const switchAddForm = () => {
         setShowForm(!showForm)
     }
+
+
+
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,8 +27,23 @@ const BookShelf = (props) => {
         event.target.publisher.value = ""
         event.target.bookDescription.value = ""
 
+
+
     }
 
+    const renderList = (book, index) => {
+        return (
+            <div key={index} className="bookCard">
+                <img src="https://dictionary.cambridge.org/images/thumb/book_noun_001_01679.jpg?version=5.0.389" alt="Book Image" />
+                <p className="name"> {book.name} </p>
+                <h4> Author: {book.author} </h4>
+                <h5> Publisher: {book.publisher}</h5>
+                <h5>{book.description}</h5>
+                <button onClick={() => props.removeBook(index)}>Remove Book</button>
+            </div>
+        )
+    }
+console.log(props.filtered)
     return (
         <div>
             <button onClick={switchAddForm} className="addbook">Add Book</button>
@@ -53,17 +71,16 @@ const BookShelf = (props) => {
                     </div>
                 </div>
             </form>}
-            {props.books.map((book, index) => {
+            {props.filtered.length > 0 ? props.filtered.map((book, index) => {
                 return (
-                    <div key={index} className="bookCard">
-                        <img src="https://dictionary.cambridge.org/images/thumb/book_noun_001_01679.jpg?version=5.0.389" alt="Book Image" />
-                        <p className="name"> {book.name} </p>
-                        <h4> Author: {book.author} </h4>
-                        <h5> Publisher: {book.publisher}</h5>
-                        <h5>{book.description}</h5>
-                    </div>
+                    renderList(book, index)
                 )
-            })}
+            }) :
+                props.books.map((book, index) => {
+                    return (
+                        renderList(book, index)
+                    )
+                })}
         </div>
     )
 

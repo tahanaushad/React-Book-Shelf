@@ -125,6 +125,7 @@
   /* align-items: center; */
   margin-left: 36%;
   margin-top: 15px;
+  margin-bottom: 20px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-style: italic;
   width: 350px;
@@ -212,4 +213,19 @@ padding-bottom: 11px;
 .bookCard button {
   margin: 5px;
   padding: -5px;
+}
+
+.alphabet {
+  margin-right: 18px;
+  margin-left: 18px;
+  color: #f7f7f7;
+}
+.alphabet:hover {
+  cursor: pointer;
+text-decoration:underline
+}
+
+.selected {
+  text-decoration: underline;
+  color: red;
 }

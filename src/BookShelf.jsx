@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
 import { useState } from "react";
+import Modal from "./Modal";
 
 let alphabets = [
   "All",
@@ -53,6 +54,7 @@ const BookShelf = (props) => {
     event.target.author.value = "";
     event.target.publisher.value = "";
     event.target.bookDescription.value = "";
+    setShowForm(false)
   };
 
   const renderList = (book, index) => {
@@ -76,36 +78,39 @@ const BookShelf = (props) => {
       <button onClick={switchAddForm} className="addbook">
         Add Book
       </button>
-
-      {showForm && (
-        <form onSubmit={handleSubmit}>
-          <div className="addBox">
-            <div className="myInputs">
-              <label htmlFor="label">Book Name</label>
-              <input type="text" className="inputF" name="bookName" />
-            </div>
-            <div className="myInputs">
-              <label htmlFor="label">Author</label>
-              <input type="text" className="inputF" name="author" />
-            </div>
-            <div className="myInputs">
-              <label htmlFor="label">Publisher</label>
-              <input type="text" className="inputF" name="publisher" />
-            </div>
-            <div className="myInputs">
-              <label htmlFor="label">Description</label>
-              <input type="text" className="inputF" name="bookDescription" />
-            </div>
-            <div>
-              <button className="submitBtn" type="submit">
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      )}
+      <Modal isOpen={showForm} children={
+      <form onSubmit={handleSubmit}>
+      <div className="">
+      <button className="cancelBtn" type="submit">
+            x
+          </button>
+        <div className="myInputs">
+          <label htmlFor="label">Book Name</label>
+          <input type="text" className="inputF" name="bookName" />
+        </div>
+        <div className="myInputs">
+          <label htmlFor="label">Author</label>
+          <input type="text" className="inputF" name="author" />
+        </div>
+        <div className="myInputs">
+          <label htmlFor="label">Publisher</label>
+          <input type="text" className="inputF" name="publisher" />
+        </div>
+        <div className="myInputs">
+          <label htmlFor="label">Description</label>
+          <input type="text" className="inputF" name="bookDescription" />
+        </div>
+        <div>
+          <button className="submitBtn" type="submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+      }/>
       {alphabets.map((alphabet, index) => {
         return (
+          
           <span
             key={alphabet}
             onClick={() => props.onSelectAlpfilter(alphabet)}
@@ -115,6 +120,8 @@ const BookShelf = (props) => {
           </span>
         );
       })}
+      <div className="book-list">
+
       {props.filtered.length > 0 || props.alpfilter
         ? props.filtered.map((book, index) => {
             return renderList(book, index);
@@ -122,6 +129,7 @@ const BookShelf = (props) => {
         : props.books.map((book, index) => {
             return renderList(book, index);
           })}
+      </div>
     </div>
   );
 };

@@ -2,11 +2,21 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 import BookShelf from "./BookShelf";
+import Modal from "./Modal";
 
 function App() {
   const [books, setBooks] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [alpfilter, setAlpfilter] = useState(null);
+  const [modal, setModal] = useState(false);
+
+  const modalFunction = () => {
+document.write("Pakistan")
+setModal(true);
+
+
+
+  };
 
   const addBook = (bookObj) => {
     setBooks((previousState) => {
@@ -47,6 +57,10 @@ function App() {
 
   return (
     <div className="main">
+    <div className="nav-bar">
+      tahanaushad
+      <button className="logout-btn">Logout</button>
+    </div>
       <div className="heading">
         <h1>Book Shelf</h1>
         <h4>{books.length} Books Available</h4>
@@ -63,7 +77,9 @@ function App() {
           <button type="submit" className="searchButton">
             <i className="fas fa-search"></i>
           </button>
+          
         </div>
+
       </div>
 
       <BookShelf
@@ -71,6 +87,7 @@ function App() {
         books={books}
         filtered={filtered}
         removeBook={removeBook}
+      
         alpfilter={alpfilter}
         onSelectAlpfilter={onSelectAlpfilter}
       />

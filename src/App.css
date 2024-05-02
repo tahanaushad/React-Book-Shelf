@@ -38,16 +38,36 @@
   }
 }
 
-.main {
-  width: 100%;
-  height: 100vh;
-  background-color: #282c34;
+
+.nav-bar {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+}
+
+.logout-btn {
+letter-spacing: 2px;
+  padding: 10px 15px;
+    border: 0px;
+    line-height: 1;
+    border-radius: 3px;
+    background: rgb(241, 242, 247);
+    color: rgb(67, 68, 73);
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .heading {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: aliceblue;
+  color: rgb(8, 19, 29);
   text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bolder;
+
+
 }
 
 /* Search Bar */
@@ -59,15 +79,14 @@
 
 .searchTerm {
 
-  width: 100%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  height: 21px;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  font-size: 18px;
-  color: #9DBFAF;
+  border-radius: 3px;
+  border: 1px solid rgb(241, 241, 244);
+  background: rgb(241, 242, 247);
+  padding: 8px 12px;
+  width: 500px;
+  height: 22px;
+  font-size: large;
+  
 }
 
 .searchTerm:focus {
@@ -75,8 +94,8 @@
 }
 
 .searchButton {
-  width: 40px;
-  height: 36px;
+  width: 42px;
+  height: 40px;
   border: 1px solid #00B4CC;
   background: #00B4CC;
   text-align: center;
@@ -96,17 +115,18 @@
 
 .addbook {
 
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 46%;
+  margin-bottom: 20px;
   display: inline-block;
   outline: none;
   cursor: pointer;
   font-size: 16px;
   line-height: 20px;
-  font-weight: 600;
+  font-weight: 400;
   border-radius: 8px;
   padding: 7px 9px;
-  border: 1px solid #222222;
+  border: 1px solid #595959;
   transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
   background: #fff;
   color: #222222;
@@ -147,56 +167,37 @@
 align-items: center;
 }
 
-.submitBtn {
-  margin-top: 0px;
-  margin-left: 40%;
-  display: inline-block;
-  outline: none;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 7px 9px;
-  border: 1px solid #222222;
-  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-  background: #fff;
-  color: #222222;
 
-  :hover {
-    border-color: #000000;
-    background: #f7f7f7;
-  } 
-}
 
 .bookCard {
- 
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-style: italic;
-  width: 200px;
-  height: 306px;
-  margin: 10px;
+  width: 20%;
+  height: 315px;
+  margin: 26px;
   background: white;
   border-radius: 10px;
   transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
     0 0 0 2px rgb(190, 190, 190),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+   
 }
 
 .bookCard img {
   align-items: center;
-  max-width: 60%; /* Ensure the image fits within the container */
-  border-radius: 5px; /* Optional: Add border-radius to the image */
-  margin-bottom: 10px; /* Optional: Add margin below the image */
+  max-width: 60%;
+  border-radius: 5px;
+  margin-bottom: 10px;
   margin-left: 38px;
 }
 
 .bookCard h4, .bookCard h5 {
-  margin: 0; /* Remove default margins */
+  margin: 0;
   text-align: center;
   padding-top: 12px;
   font-size: 10px;
@@ -218,7 +219,7 @@ padding-bottom: 11px;
 .alphabet {
   margin-right: 18px;
   margin-left: 18px;
-  color: #f7f7f7;
+  color: #000000;
 }
 .alphabet:hover {
   cursor: pointer;
@@ -228,4 +229,12 @@ text-decoration:underline
 .selected {
   text-decoration: underline;
   color: red;
+}
+
+.book-list{
+  display: flex;
+  flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 40px;
 }

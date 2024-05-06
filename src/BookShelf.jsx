@@ -41,6 +41,15 @@ const BookShelf = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+const bookName = event.target.elements.bookName.value;
+const author = event.target.elements.author.value;
+
+if (!bookName || !author) {
+  alert("Please fill Name and Author");
+  return;
+}
+
     const obj = {
         id: new Date ().getTime(),
       name: event.target.bookName.value,

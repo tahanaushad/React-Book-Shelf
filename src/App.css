@@ -238,3 +238,7 @@ text-decoration:underline
     flex-direction: row;
     margin: 40px;
 }
+
+.error-message {
+  color: red;
+}

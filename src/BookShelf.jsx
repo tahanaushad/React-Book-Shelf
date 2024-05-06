@@ -34,6 +34,7 @@ let alphabets = [
 
 const BookShelf = (props) => {
   const [showForm, setShowForm] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const switchAddForm = () => {
     setShowForm(!showForm);
@@ -46,9 +47,10 @@ const bookName = event.target.elements.bookName.value;
 const author = event.target.elements.author.value;
 
 if (!bookName || !author) {
-  alert("Please fill Name and Author");
+setShowError(true)
   return;
 }
+setShowError(false)
 
     const obj = {
         id: new Date ().getTime(),
@@ -107,9 +109,14 @@ if (!bookName || !author) {
         </div>
         <div className="myInputs">
           <label htmlFor="label">Description</label>
-          <input type="text" className="inputF" name="bookDescription" />
+          {/* <input type="text" className="inputF" name="bookDescription" /> */}
+          <textarea name="bookDescription" className="inputF" id="" cols="30" rows="10"></textarea>
         </div>
         <div>
+{
+  showError && 
+  <span className="error-message">Please Enter Required Fields</span>
+}
           <button className="submitBtn" type="submit">
             Submit
           </button>

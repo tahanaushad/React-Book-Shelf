@@ -3,20 +3,13 @@ import "./App.css";
 import { useState } from "react";
 import BookShelf from "./BookShelf";
 import Modal from "./Modal";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [books, setBooks] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [alpfilter, setAlpfilter] = useState(null);
   const [modal, setModal] = useState(false);
-
-  const modalFunction = () => {
-document.write("Pakistan")
-setModal(true);
-
-
-
-  };
 
   const addBook = (bookObj) => {
     setBooks((previousState) => {
@@ -44,7 +37,7 @@ setModal(true);
   const onSelectAlpfilter = (selectedAlp) => {
     if (selectedAlp === "All") {
       setAlpfilter(null);
-      setFiltered([])
+      setFiltered([]);
       return;
     }
     setAlpfilter(selectedAlp);
@@ -56,42 +49,50 @@ setModal(true);
   };
 
   return (
-    <div className="main">
-    <div className="nav-bar">
-      tahanaushad
-      <button className="logout-btn">Logout</button>
-    </div>
-      <div className="heading">
-        <h1>Book Shelf</h1>
-        <h4>{books.length} Books Available</h4>
-      </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="main">
+              <div className="nav-bar">
+                tahanaushad
+                <button className="logout-btn">Logout</button>
+              </div>
+              <div className="heading">
+                <h1>Book Shelf</h1>
+                <h4>{books.length} Books Available</h4>
+              </div>
 
-      <div className="wrap">
-        <div className="search">
-          <input
-            onChange={onSearch}
-            type="text"
-            className="searchTerm"
-            placeholder="Search Book.."
-          />
-          <button type="submit" className="searchButton">
-            <i className="fas fa-search"></i>
-          </button>
-          
-        </div>
+              <div className="wrap">
+                <div className="search">
+                  <input
+                    onChange={onSearch}
+                    type="text"
+                    className="searchTerm"
+                    placeholder="Search Book.."
+                  />
+                  <button type="submit" className="searchButton">
+                    <i className="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
 
-      </div>
-
-      <BookShelf
-        addBook={addBook}
-        books={books}
-        filtered={filtered}
-        removeBook={removeBook}
-      
-        alpfilter={alpfilter}
-        onSelectAlpfilter={onSelectAlpfilter}
-      />
-    </div>
+              <BookShelf
+                addBook={addBook}
+                books={books}
+                filtered={filtered}
+                removeBook={removeBook}
+                alpfilter={alpfilter}
+                onSelectAlpfilter={onSelectAlpfilter}
+              />
+            </div>
+          }
+        />
+        <Route path="/detail" element={<div>this is a detail </div>} />
+        <Route path="*" element={<div>wrong route</div>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

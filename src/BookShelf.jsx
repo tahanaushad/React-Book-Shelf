@@ -109,8 +109,9 @@ setShowError(false)
         </div>
         <div className="myInputs">
           <label htmlFor="label">Description</label>
+          <br />
           {/* <input type="text" className="inputF" name="bookDescription" /> */}
-          <textarea name="bookDescription" className="inputF" id="" cols="30" rows="10"></textarea>
+          <textarea name="bookDescription" className="inputF" cols="33" rows="4"></textarea>
         </div>
         <div>
 {

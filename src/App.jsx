@@ -4,8 +4,10 @@ import { useState } from "react";
 import BookShelf from "./BookShelf";
 import Modal from "./Modal";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DetailPage from "./DetailPage";
 
 function App() {
+
   const [books, setBooks] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [alpfilter, setAlpfilter] = useState(null);
@@ -89,7 +91,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/detail" element={<div>this is a detail </div>} />
+        <Route path="/DetailPage" element={<DetailPage />} />
         <Route path="*" element={<div>wrong route</div>} />
       </Routes>
     </BrowserRouter>
